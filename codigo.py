@@ -3,8 +3,8 @@ import pygame
 
 # initialize pygame
 pygame.init()
-
 # create a window
+preto = pygame.Color('grey0')
 branco = pygame.Color('grey100')
 width = 1000
 height = 700
@@ -18,7 +18,26 @@ caixa2 = pygame.image.load('fundo.png/yellow_box_179_120.png').convert_alpha()
 caixa2 = pygame.transform.scale(caixa,(100,150))
 background_img = pygame.image.load('fundo.png/Fundoverdeblack.png').convert()
 background_img = pygame.transform.scale(background_img, (width, height))
-# game loop
+#Fonte e textos----------------------------------
+fonte_inicial = pygame.font.Font('NeonSans.ttf', 100)
+texto_ini = fonte_inicial.render('BlackJack',False,preto)
+Barra_txt = fonte_inicial.render('Pressione Espaço', False,preto)
+Barra2_txt = fonte_inicial.render('para começar', False,preto)
+#TELA_DE_INICIO----------------------------------------------
+inicial = True
+while inicial:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            inicial = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                inicial = False
+    window.fill((branco))
+    window.blit(texto_ini, (280, 10 ))
+    window.blit(Barra_txt, (10, 200))
+    window.blit(Barra2_txt, (10, 300))
+    pygame.display.update()
+#game_loop---------------------------------------
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
