@@ -56,14 +56,14 @@ def blackjack_game():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-
+        lista_numeros = ['ace','2','3','4','5','6','7','8','9','10','jack','queen','king']
         # Lógica do jogo aqui
 
         # Iniciar uma nova rodada (limpar as mãos e distribuir cartas)
         jogador_mao.clear()
         cpu_mao.clear()
-        jogador_mao.append(random.choice(valores_cartas))
-        cpu_mao.append(random.choice(valores_cartas))
+        jogador_mao.append(random.choice(lista_numeros))
+        cpu_mao.append(random.choice(lista_numeros))
 
         # Perguntar ao jogador quanto deseja apostar
         while True:
